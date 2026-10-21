@@ -1,0 +1,46 @@
+// Batch LMS — window.BatchLMS. Types are documentation.
+import type * as React from "react";
+
+export type Role = "super-admin" | "operations" | "course-designer" | "admissions" | "student";
+export type Tone = "neutral" | "info" | "success" | "warning" | "danger";
+export type Status =
+  | "new" | "contacted" | "interview-scheduled" | "interviewed" | "selected" | "rejected" | "enrolled" | "follow-up-due"
+  | "draft" | "upcoming" | "ongoing" | "full" | "completed" | "cancelled"
+  | "scheduled" | "link-missing" | "live" | "rescheduled" | "ended" | "recording-processing" | "recording-ready"
+  | "joined" | "present" | "unverified" | "absent"
+  | "materials-on" | "materials-off";
+
+export interface IconProps { name: string; size?: "lg"; label?: string; className?: string }
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: "primary" | "secondary" | "ghost" | "danger";
+  icon?: string; iconRight?: string; touch?: boolean; block?: boolean;
+}
+export interface StatusChipProps { status: Status | string; tone?: Tone; dot?: boolean; children?: React.ReactNode }
+export interface TextFieldProps extends React.InputHTMLAttributes<HTMLInputElement> { label?: string; hint?: string; error?: string; mono?: boolean }
+export interface SelectFieldProps extends React.SelectHTMLAttributes<HTMLSelectElement> { label?: string; hint?: string; error?: string; options: Array<string | { value: string; label: string }> }
+export interface ToggleProps { label: string; description?: string; checked?: boolean; defaultChecked?: boolean; disabled?: boolean; onChange?: (checked: boolean) => void }
+export interface TabsProps { items: Array<{ value: string; label: string; count?: number }>; value?: string; defaultValue?: string; onChange?: (value: string) => void }
+export interface NavGroup { group: string | null; items: Array<[key: string, label: string, icon: string]> }
+export interface SidebarProps { role?: Role; active?: string; collapsed?: boolean; onToggle?: () => void; onNavigate?: (key: string) => void; badges?: Record<string, number | string>; brand?: string; mark?: string; nav?: NavGroup[] }
+export interface TopbarProps { title: string; breadcrumb?: string; userName: string; role: Role; actions?: React.ReactNode; search?: boolean; searchPlaceholder?: string; onMenu?: () => void }
+export interface FilterBarProps { searchPlaceholder?: string; filters?: Array<{ label: string; value?: string; onClick?: () => void }>; end?: React.ReactNode }
+export interface Column<R> { key: string; label: string; render?: (row: R) => React.ReactNode; numeric?: boolean; width?: number | string }
+export interface DataTableProps<R = any> { columns: Column<R>[]; rows: R[]; toolbar?: React.ReactNode; footer?: React.ReactNode; onRowClick?: (row: R) => void; selectedId?: string | number; empty?: React.ReactNode }
+export interface ProgressProps { value: number }
+export interface StatCardProps { title: string; value: string; delta?: string; trend?: "up" | "down" }
+export interface DialogProps { title: string; description?: string; children?: React.ReactNode; footer?: React.ReactNode; onClose?: () => void; open?: boolean; width?: number; inline?: boolean }
+export interface Lead { id: string | number; stage: string; name: string; course: string; source?: string; interview?: string; followUp?: string; updated?: string; owner?: string; status?: Status }
+export interface LeadCardProps { lead: Lead; onOpen?: (lead: Lead) => void; dragging?: boolean }
+export interface KanbanBoardProps { leads: Lead[]; stages?: Array<[key: string, label: string]>; onOpen?: (lead: Lead) => void }
+export interface CalendarEvent { day: number; start: string; end: string; title: string; batch?: string; status?: Status }
+export interface WeekCalendarProps { days: Array<{ label: string; date: string }>; events: CalendarEvent[]; startHour?: number; endHour?: number; tzLabel?: string; todayIndex?: number; onEventClick?: (e: CalendarEvent) => void }
+export interface LiveClassCardProps {
+  title: string; batch: string;
+  /** ISO timestamps with offset, e.g. 2026-10-21T18:30:00+05:30 */
+  start: string; end: string;
+  timeZone?: string; tzLabel?: string;
+  linkPublished: boolean; enrolled?: boolean; meetingUrl?: string; onJoin?: () => void;
+  recording?: { duration?: string } | null; onWatch?: () => void;
+  now?: string | number; joinOpensMinutesBefore?: number;
+}
+export interface EmptyStateProps { title: string; description?: string; icon?: string; action?: React.ReactNode }

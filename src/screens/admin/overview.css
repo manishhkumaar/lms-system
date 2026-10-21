@@ -1,0 +1,65 @@
+/* Dashboard, Reports, Team & Roles and Settings. Tokens only. */
+
+/* ---------- Bar list (horizontal bars) ---------- */
+.ovw-bars { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-1); }
+.ovw-bar-row { position: relative; display: grid; grid-template-columns: minmax(96px, 168px) minmax(0, 1fr); align-items: center; gap: var(--space-1-5); min-height: 32px; padding: 2px 4px; margin: 0 -4px; border-radius: var(--radius-sm); }
+.ovw-bar-row:hover, .ovw-bar-row:focus-visible { background: var(--surface); }
+.ovw-bar-label { min-width: 0; font: 500 13px/18px var(--font-sans); color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ovw-bar-track { position: relative; height: 16px; margin-right: 56px; }
+.ovw-bar { position: absolute; left: 0; top: 2px; height: 12px; min-width: 4px; background: var(--primary); border-radius: 0 4px 4px 0; transition: filter .12s; }
+.ovw-bar.on { filter: brightness(1.12); }
+.ovw-bar-value { position: absolute; top: -1px; padding-left: var(--space-1); font: 500 12px/18px var(--font-mono); font-variant-numeric: tabular-nums; color: var(--ink-muted); white-space: nowrap; }
+
+/* ---------- Columns ---------- */
+.ovw-cols { display: flex; gap: var(--space-1); }
+.ovw-cols-y { display: flex; flex-direction: column; justify-content: space-between; align-items: flex-end; flex: none; min-width: 24px; font: 400 11px/14px var(--font-mono); color: var(--ink-subtle); transform: translateY(-7px); }
+.ovw-cols-main { flex: 1; min-width: 0; }
+.ovw-cols-plot { position: relative; display: flex; align-items: flex-end; border-bottom: 1px solid var(--border-strong); }
+.ovw-grid { position: absolute; left: 0; right: 0; height: 1px; background: var(--border); pointer-events: none; }
+.ovw-col-slot { position: relative; flex: 1; height: 100%; display: flex; align-items: flex-end; justify-content: center; padding: 0 1px; border-radius: var(--radius-sm); outline-offset: -2px; }
+.ovw-col-slot:hover { background: var(--surface); }
+.ovw-col { position: relative; width: min(24px, 70%); min-height: 2px; background: var(--primary); border-radius: 4px 4px 0 0; transition: filter .12s; }
+.ovw-col.on { filter: brightness(1.12); }
+.ovw-col-value { position: absolute; left: 0; right: 0; margin-bottom: 4px; text-align: center; font: 500 12px/16px var(--font-mono); color: var(--ink-muted); pointer-events: none; }
+.ovw-cols-x { display: flex; margin-top: var(--space-0-5); }
+.ovw-cols-x > span { flex: 1; min-width: 0; text-align: center; font: 400 11px/14px var(--font-sans); color: var(--ink-subtle); white-space: nowrap; overflow: visible; }
+
+/* ---------- Tooltip ---------- */
+.ovw-tip { position: absolute; z-index: var(--z-dropdown); right: 0; top: calc(100% + 4px); display: flex; flex-direction: column; gap: 2px; min-width: 140px; padding: var(--space-1) var(--space-1-5); background: var(--surface-raised); border: 1px solid var(--border); border-radius: var(--radius-md); box-shadow: var(--shadow-md); font: 400 12px/16px var(--font-sans); color: var(--ink-muted); pointer-events: none; white-space: nowrap; }
+.ovw-tip strong { font: 600 14px/20px var(--font-mono); color: var(--ink); }
+.ovw-tip-col { right: auto; left: 50%; top: 0; transform: translateX(-20%); }
+.ovw-tip-col.left { transform: translateX(-80%); }
+
+.ovw-table { margin: calc(var(--space-3) * -1); }
+@media (max-width: 767px) { .ovw-table { margin: calc(var(--space-2) * -1); } }
+
+/* ---------- Dashboard rows ---------- */
+.ovw-live { display: flex; flex-direction: column; gap: var(--space-1); padding: var(--space-2) var(--space-3); border-top: 1px solid var(--border); }
+.ovw-live:first-child { border-top: 0; }
+.ovw-live-top { display: flex; align-items: center; gap: var(--space-1); flex-wrap: wrap; }
+.ovw-live-title { font: 600 16px/24px var(--font-sans); color: var(--ink); }
+.ovw-when { display: inline-flex; align-items: center; gap: 6px; font: 500 13px/18px var(--font-mono); color: var(--ink-muted); }
+.ovw-time { flex: none; width: 112px; font: 500 13px/18px var(--font-mono); font-variant-numeric: tabular-nums; color: var(--ink); }
+.ovw-time small { display: block; font: 400 11px/14px var(--font-mono); color: var(--ink-subtle); }
+.ovw-grow { flex: 1; min-width: 0; }
+.ovw-alert-icon { flex: none; color: var(--ink-muted); }
+.ovw-alert-icon.warning { color: var(--warning); }
+.ovw-alert-icon.danger { color: var(--danger); }
+.ovw-alert-icon.info { color: var(--primary); }
+.ovw-seats { display: flex; align-items: center; gap: var(--space-1); margin-top: 4px; }
+.ovw-seats .bl-progress { flex: 1; }
+.ovw-empty { padding: var(--space-3); color: var(--ink-muted); }
+.ovw-period { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1-5); }
+
+/* ---------- Team ---------- */
+.ovw-role-btn { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 10px; border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--surface-raised); color: var(--ink); font: 500 13px/18px var(--font-sans); cursor: pointer; white-space: nowrap; }
+.ovw-role-btn:hover { background: var(--surface-sunken); }
+.ovw-roles { list-style: none; margin: 0; padding: 0; }
+.ovw-roles > li { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: var(--space-2); padding: var(--space-1-5) var(--space-3); border-top: 1px solid var(--border); }
+.ovw-roles > li:first-child { border-top: 0; }
+@media (max-width: 767px) { .ovw-roles > li { grid-template-columns: minmax(0, 1fr); gap: 2px; padding: var(--space-1-5) var(--space-2); } }
+
+/* ---------- Settings ---------- */
+.ovw-settings { display: flex; flex-direction: column; gap: var(--space-3); max-width: 880px; }
+.ovw-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
+@media (max-width: 767px) { .ovw-form-grid { grid-template-columns: minmax(0, 1fr); } }

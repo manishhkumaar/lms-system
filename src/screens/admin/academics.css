@@ -1,0 +1,46 @@
+/* Academics screens: courses, course editor, materials, batches. Tokens only. */
+
+.acd-num { flex: none; min-width: 28px; font: 500 12px/16px var(--font-mono); color: var(--ink-subtle); font-variant-numeric: tabular-nums; }
+.acd-grow { flex: 1; min-width: 0; }
+.acd-rot { transform: rotate(180deg); }
+.acd-icon-btn { height: 30px; width: 30px; }
+.acd-actions { display: flex; justify-content: flex-end; gap: 2px; }
+.acd-inline-edit { display: flex; flex-wrap: wrap; align-items: flex-end; gap: var(--space-1); }
+.acd-inline-edit .bl-field { flex: 1; min-width: 200px; }
+
+.acd-seats { display: flex; align-items: center; gap: var(--space-1); min-width: 150px; }
+.acd-seats .bl-progress { flex: 1; }
+.acd-seats span { font: 500 12px/16px var(--font-mono); color: var(--ink-muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+.acd-ok { display: inline-flex; align-items: center; gap: 4px; color: var(--success); font: 500 13px/18px var(--font-sans); white-space: nowrap; }
+.acd-small-btn { height: 30px; padding: 0 10px; font-size: 12px; }
+
+.acd-summary { display: flex; flex-wrap: wrap; gap: var(--space-0-5) var(--space-2); font: 400 13px/18px var(--font-sans); color: var(--ink-muted); }
+.acd-summary strong { color: var(--ink); font-weight: 600; }
+
+.acd-form { display: flex; flex-direction: column; gap: var(--space-3); max-width: 820px; }
+.acd-form-foot { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--space-1); }
+.acd-days { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-2); }
+.acd-days .bl-check { min-width: 56px; }
+.acd-preview { display: flex; gap: var(--space-1-5); align-items: flex-start; padding: var(--space-1-5) var(--space-2); border-radius: var(--radius-md); background: var(--surface-sunken); color: var(--ink-muted); font: 400 13px/18px var(--font-sans); }
+.acd-preview strong { color: var(--ink); font-weight: 600; }
+.acd-fieldset { border: 0; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-1); }
+.acd-fieldset legend { padding: 0; margin-bottom: var(--space-1); font: 500 13px/18px var(--font-sans); color: var(--ink); }
+
+/* Attendance matrix */
+.acd-matrix .bl-table th:not(:first-child):not(:last-child),
+.acd-matrix .bl-table td:not(:first-child):not(:last-child) { text-align: center; padding-left: var(--space-1); padding-right: var(--space-1); }
+.acd-matrix .bl-chip { height: 22px; min-width: 28px; padding: 0 8px; justify-content: center; font-family: var(--font-mono); }
+.acd-lec-head { display: inline-flex; flex-direction: column; align-items: center; line-height: 14px; }
+.acd-lec-head .bl-mono { color: var(--ink); }
+.acd-legend { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1) var(--space-2); font: 400 12px/16px var(--font-sans); color: var(--ink-muted); }
+.acd-legend > span { display: inline-flex; align-items: center; gap: 6px; }
+.acd-legend .bl-chip { height: 20px; min-width: 24px; padding: 0 6px; justify-content: center; font-family: var(--font-mono); }
+
+.acd-module-title { display: flex; align-items: baseline; gap: var(--space-1); flex-wrap: wrap; }
+.acd-module-title .acd-num { min-width: 0; }
+
+@media (max-width: 767px) {
+  .acd-form-foot .bl-btn { flex: 1; }
+  .acd-seats { min-width: 120px; }
+}

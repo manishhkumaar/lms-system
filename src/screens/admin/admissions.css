@@ -1,0 +1,37 @@
+/* Admissions and student screens. Tokens only. */
+
+.adm-summary { display: flex; flex-wrap: wrap; gap: var(--space-0-5) var(--space-3); font: 400 13px/18px var(--font-sans); color: var(--ink-muted); }
+.adm-summary b { font: 600 13px/18px var(--font-mono); color: var(--ink); font-variant-numeric: tabular-nums; }
+
+/* Lead panel */
+.adm-panel-section { display: flex; flex-direction: column; gap: var(--space-1-5); padding-top: var(--space-2); border-top: 1px solid var(--border); }
+.adm-panel-section > h3 { font: 600 13px/18px var(--font-sans); color: var(--ink); }
+.adm-activity-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-0-5) var(--space-1); }
+.adm-activity-kind { font: 600 11px/16px var(--font-sans); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-subtle); }
+.adm-activity-meta { font: 400 12px/16px var(--font-sans); color: var(--ink-subtle); }
+.adm-activity-text { font: 400 14px/20px var(--font-sans); color: var(--ink); overflow-wrap: anywhere; }
+
+/* Day groups (Interviews) */
+.adm-day { padding: var(--space-1) var(--space-3); background: var(--surface-sunken); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); font: 600 13px/18px var(--font-sans); color: var(--ink); }
+.adm-day:first-child { border-top: 0; }
+.adm-day span { font-weight: 400; color: var(--ink-subtle); margin-left: var(--space-1); }
+.adm-time { flex: none; min-width: 132px; font: 500 13px/18px var(--font-mono); color: var(--ink); font-variant-numeric: tabular-nums; }
+.adm-grow { flex: 1; min-width: 0; }
+.adm-actions { display: flex; flex-wrap: wrap; gap: var(--space-1); justify-content: flex-end; }
+@media (max-width: 767px) {
+  .adm-day { padding: var(--space-1) var(--space-2); }
+  .list > li.adm-wrap { flex-wrap: wrap; }
+  .adm-actions { width: 100%; justify-content: flex-start; }
+}
+
+/* Pagination */
+.adm-pager { display: flex; align-items: center; gap: var(--space-1); }
+
+/* Student profile */
+.adm-profile { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--space-2); }
+.adm-profile-main { flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: var(--space-0-5); }
+.adm-contact { display: flex; flex-wrap: wrap; gap: var(--space-0-5) var(--space-2); font: 400 13px/18px var(--font-sans); color: var(--ink-muted); }
+.adm-contact > span { display: inline-flex; align-items: center; gap: 6px; }
+.adm-enrol-foot { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-top: var(--space-2); padding-top: var(--space-2); border-top: 1px solid var(--border); }
+.adm-progress-row { display: flex; align-items: center; gap: var(--space-1); }
+.adm-progress-row .bl-progress { flex: 1; }
